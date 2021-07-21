@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     private GameObject player;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,6 +18,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+
+
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         rb.AddForce(lookDirection * speed);
     }
