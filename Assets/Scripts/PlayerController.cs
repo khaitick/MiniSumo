@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float verticalInput = Input.GetAxis("Vertical");
-        rb.AddForce(focalPoint.forward * speed * verticalInput);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        rb.AddForce(focalPoint.forward * speed * (verticalInput * 2f));
+        rb.AddForce(focalPoint.right * speed * (horizontalInput * 1.25f));
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
@@ -40,14 +42,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBoss")) && hasPowerup)
         {
             Rigidbody rbEnemy = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 enemyDirection = collision.gameObject.transform.position - transform.position;
 
             rbEnemy.AddForce(enemyDirection * powerupStrength, ForceMode.Impulse);
+        }
 
-            Debug.Log("enemy");
+        if (collision.gameObject.CompareTag("EnemyBoss"))
+        {
+            rb.AddForce(-focalPoint.forward * (powerupStrength ));            
         }
     }
 

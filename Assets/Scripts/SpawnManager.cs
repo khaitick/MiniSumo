@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemiesPrefab;
     public GameObject powerup;
 
 
@@ -41,11 +41,19 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnEnemy(int spawnCount)
     {
-
+        // spawn powerup
         Instantiate(powerup, SpawnPoint(), powerup.transform.rotation);
+
+        // Spawn boss
+        if (waveNumber % 3 == 0)
+        {
+            spawnCount--;
+            Instantiate(enemiesPrefab[1], SpawnPoint(), transform.rotation);
+        }
+
+        // Spawn enemy
         for (int i = 0; i < spawnCount; i++){
-            Debug.Log("here");
-            Instantiate(enemyPrefab, SpawnPoint(), transform.rotation);
+            Instantiate(enemiesPrefab[0], SpawnPoint(), transform.rotation);
         }
     }
 }

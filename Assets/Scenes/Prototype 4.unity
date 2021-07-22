@@ -149,8 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c02143f8e2f75478f04f8d926b9a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1522402675531134209, guid: d3b38e0c224f2e24d8272da6c376bde4,
-    type: 3}
+  enemiesPrefab:
+  - {fileID: 1522402675531134209, guid: d3b38e0c224f2e24d8272da6c376bde4, type: 3}
+  - {fileID: 1522402675531134209, guid: 217f03f972c9a1b4a947072ad8f38394, type: 3}
   powerup: {fileID: 9185893726465656776, guid: c9e4647757a632e478ae696fc8e506dd, type: 3}
 --- !u!4 &241281608
 Transform:
@@ -295,7 +296,7 @@ Rigidbody:
   m_GameObject: {fileID: 415636137}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -332,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33a04b0ac29b748b2976410da1397566, type: 2}
+  - {fileID: 2100000, guid: 9e06209d219644e1a8caa7a17a982e92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  powerupStrength: 10
+  powerupStrength: 20
   powerupCooldown: 5
   powerupIndicator: {fileID: 1233402975}
 --- !u!1 &832175402
@@ -420,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281afc416f05d545a693e4e22e9d44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 100
+  rotateSpeed: 150
 --- !u!4 &832175404
 Transform:
   m_ObjectHideFlags: 0
